@@ -6,3 +6,6 @@ venv/
 
 *.sqlite
 *.sqlite3
+
+data/
+easykassa_tokens.json
