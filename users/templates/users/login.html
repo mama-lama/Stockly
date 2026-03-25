@@ -1,0 +1,16 @@
+{% extends 'main/layout.html' %}
+{% block title %}Вход | Stockly{% endblock %}
+
+{% block content %}
+<section class="stub-page">
+    <div class="stub-card">
+        <h2>Вход в систему</h2>
+
+        <form method="post" class="register-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Войти</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

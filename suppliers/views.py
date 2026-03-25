@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
 
-def forecast_page(request):
+def suppliers_page(request):
     context = {
-        'title': 'Прогноз',
+        'title': 'Поставщики',
         'menu': [
             {'title': 'Главная', 'url': '/'},
             {'title': 'Товары', 'url': '/products/'},
@@ -11,4 +11,4 @@ def forecast_page(request):
             {'title': 'Поставщики', 'url': '/suppliers/'},
         ]
     }
-    return render(request, 'forecasting/forecast.html', context)
+    return render(request, 'suppliers/suppliers.html', context)

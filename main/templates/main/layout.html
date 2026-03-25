@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Stockly{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+</head>
+<body>
+    {% block mainmenu %}
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo-block">
+                <h1 class="logo">Stockly</h1>
+                <p class="logo-subtitle">Retail Demand Forecasting System</p>
+            </div>
+
+           
+           <!-- <div class="header-center-box">
+                <img src="{% static 'main/img/logo.png' %}" alt="">
+           </div> -->
+ 
+            
+
+            <aside class="sidebar">
+               <nav>
+                    {% for item in menu %}
+                        <a href="{{ item.url }}">{{ item.title }}</a>
+                    {% endfor %}
+                </nav>
+            </aside>
+           <div class="header-actions">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'profile' %}" class="register-btn">{{ user.username }}</a>
+
+                    <form action="{% url 'logout' %}" method="post" class="logout-form">
+                        {% csrf_token %}
+                        <button type="submit" class="logout-btn">Выйти</button>
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}" class="login-btn">Вход</a>
+                <a href="{% url 'register' %}" class="register-btn">Регистрация</a>
+            {% endif %}
+           </div>
+        </div>
+    </header>
+    {% endblock %}
+
+    <main class="container main-content">
+        {% block content %}
+        {% endblock %}
+       
+    </main>
+</body>
+</html>

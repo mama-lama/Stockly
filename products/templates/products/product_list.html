@@ -1,0 +1,54 @@
+{% extends 'main/layout.html' %}
+{% block title %}Товары | Stockly{% endblock %}
+
+{% block content %}
+<section class="products-page">
+    <div class="page-header">
+        <h2>Список товаров</h2>
+        <p>
+            На этой странице отображаются товары, импортированные в систему
+            из внешнего источника или загруженного файла.
+        </p>
+    </div>
+
+    <div class="search-card">
+        <form method="get" class="search-form">
+            <input type="text" name="q" placeholder="Поиск по названию товара..." value="{{ query }}">
+            <button type="submit">Найти</button>
+        </form>
+    </div>
+
+    <div class="table-card">
+        {% if products %}
+        <table class="products-table">
+            <thead>
+                <tr>
+                    {% for header in headers %}
+                        <th>{{ header }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.category }}</td>
+                    <td>{{ product.sale_price }} ₽</td>
+                    <td>{{ product.stock_quantity }}</td>
+                    <td>{{ product.supplier }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="empty-state">
+            <h3>Ничего не найдено</h3>
+            <p>
+                По вашему запросу товары не найдены
+                или данные ещё не были загружены в систему.
+            </p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

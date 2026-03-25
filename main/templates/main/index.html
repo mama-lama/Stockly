@@ -1,0 +1,56 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Главная | Stockly{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-text">
+        <span class="badge">Dashboard</span>
+        <h2>{{ subtitle }}</h2>
+        <p>
+            Веб-приложение для владельца розничного магазина, которое помогает
+            анализировать продажи, отслеживать товары и строить прогноз спроса
+            на 1, 7, 14 и 30 дней.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="/products/" class="btn btn-primary">Открыть товары</a>
+            <a href="/forecast/" class="btn btn-secondary">Перейти к прогнозу</a>
+        </div>
+    </div>
+</section>
+
+<section class="stats-grid">
+    <div class="card">
+        <h3>Активные товары</h3>
+        <p class="card-value">245</p>
+        <p class="card-note">Количество товаров в системе</p>
+    </div>
+
+    <div class="card">
+        <h3>Продажи за сегодня</h3>
+        <p class="card-value">18 420 ₽</p>
+        <p class="card-note">Тестовые данные для dashboard</p>
+    </div>
+
+    <div class="card">
+        <h3>Низкий остаток</h3>
+        <p class="card-value">12</p>
+        <p class="card-note">Товаров требуют пополнения</p>
+    </div>
+
+    <div class="card">
+        <h3>Прогноз на 7 дней</h3>
+        <p class="card-value">+8.4%</p>
+        <p class="card-note">Ожидаемый рост спроса</p>
+    </div>
+</section>
+
+<section class="panel">
+    <h3>О системе</h3>
+    <p>
+        Stockly предназначен для прогнозирования спроса, анализа товарных остатков
+        и формирования рекомендаций по заказу товаров у поставщика.
+    </p>
+</section>
+{% endblock %}

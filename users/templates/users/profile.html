@@ -1,0 +1,12 @@
+{% extends 'main/layout.html' %}
+{% block title %}Профиль | Stockly{% endblock %}
+
+{% block content %}
+<section class="stub-page">
+    <div class="stub-card">
+        <h2>Профиль пользователя</h2>
+        <p><strong>Ник:</strong> {{ user.username }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+    </div>
+</section>
+{% endblock %}
