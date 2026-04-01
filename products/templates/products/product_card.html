@@ -1,0 +1,28 @@
+{% extends 'main/layout.html' %}
+{% block title %} Карточки товаров | Stockly{% endblock %}
+
+{% block content %}
+<section class="products-page">
+    <div class="page-header">
+        {% if product %}
+            <h2>{{ product.name }}</h2>
+            <p>Подробная информация</p>
+        {% else %}
+            <h2>Товар не найден</h2>
+        {% endif %}
+    </div>
+
+    <div class="table-card">
+        {% if product %}
+            <p><strong>Название:</strong> {{ product.name }}</p>
+            <p><strong>Категория:</strong> {{ product.category }}</p>
+            <p><strong>Цена продажи:</strong> {{ product.sale_price }} ₽</p>
+            <p><strong>Остаток:</strong> {{ product.stock_quantity }}</p>
+            <p><strong>Поставщик:</strong> {{ product.supplier }}</p>
+        {% else %}
+            <p>Информация о товаре отсутствует</p>
+        {% endif %}
+    </div>
+
+</section>
+{% endblock %}

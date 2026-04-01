@@ -11,6 +11,17 @@
         </p>
     </div>
 
+    <p class="p-data">Загрузите базу данных</p>
+    <div class="custom-file-upload">
+        <label for="file-upload" class="custom-file-label" id="file-label">
+           Загрузите базу 
+        </label>
+        <input type="file" id="file-upload" class="file-input-hidden">
+    </div>
+
+    
+
+
     <div class="search-card">
         <form method="get" class="search-form">
             <input type="text" name="q" placeholder="Поиск по названию товара..." value="{{ query }}">
@@ -31,11 +42,11 @@
             <tbody>
                 {% for product in products %}
                 <tr>
-                    <td>{{ product.name }}</td>
-                    <td>{{ product.category }}</td>
-                    <td>{{ product.sale_price }} ₽</td>
-                    <td>{{ product.stock_quantity }}</td>
-                    <td>{{ product.supplier }}</td>
+                    <td> <a href="{% url 'product_detail' product.id %}" class="products-list"> {{ product.name }} </a></td>
+                    <td> <a href="{% url 'product_detail' product.id %}" class="products-list"> {{ product.category }}  </a></td>
+                    <td class="products-list-price"> {{ product.sale_price }} ₽ </td>
+                    <td class="products-list-quantity">  {{ product.stock_quantity }} </td>
+                    <td> <a href="{% url 'product_detail' product.id %}" class="products-list"> {{ product.supplier }}  </a></td>
                 </tr>
                 {% endfor %}
             </tbody>
