@@ -8,4 +8,5 @@ urlpatterns = [
     path('forecast/', include('forecasting.urls')),
     path('suppliers/', include('suppliers.urls')),
     path('', include('users.urls')),
+    path('application/', include('application.urls')),
 ]

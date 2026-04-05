@@ -1,0 +1,28 @@
+{% extends 'main/layout.html' %}
+{% block title %}Заявка | Stockly{% endblock %}
+
+{% block content %}
+
+<section class="application-page">
+    <div class="application-header">
+        <div class="application-text">
+            <h1>
+                Заявка поставщику
+            </h1>
+            <p>
+                Товары к заказу пока не требуются.
+            </p>
+        </div>
+        
+
+        <div class="application-button">
+            <a href="{% url 'export_excel' %}" class="export-btn">Выгрузить в Excel</a>
+        </div>
+        
+    </div>
+</section>
+
+
+
+
+{% endblock %}

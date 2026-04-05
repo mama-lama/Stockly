@@ -1,6 +1,5 @@
 from django.shortcuts import render
 
-
 def forecast_page(request):
     context = {
         'title': 'Прогноз',
@@ -9,6 +8,7 @@ def forecast_page(request):
             {'title': 'Товары', 'url': '/products/'},
             {'title': 'Прогноз', 'url': '/forecast/'},
             {'title': 'Поставщики', 'url': '/suppliers/'},
+            {'title': 'Заявка', 'url': '/application/'},
         ]
     }
     return render(request, 'forecasting/forecast.html', context)

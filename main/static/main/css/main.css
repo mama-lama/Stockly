@@ -89,9 +89,8 @@ body {
 }
 
 .sidebar a:first-child {
-    background: linear-gradient(135deg, #6d5dfc, #5b4cf0);
-    color: #ffffff;
-    box-shadow: 0 8px 18px rgba(91, 76, 240, 0.18);
+    
+  
 }
 
 .sidebar a:hover {
@@ -99,10 +98,7 @@ body {
     color: #4f46e5;
 }
 
-.sidebar a:first-child:hover {
-    background: linear-gradient(135deg, #6d5dfc, #5b4cf0);
-    color: #ffffff;
-}
+
 
 /* ===== AUTH BUTTONS INSIDE LEFT PANEL ===== */
 
@@ -541,6 +537,78 @@ body {
     color: #334155;
     font-size: 16px;
 }
+
+/* ===== APPLICATION ===== */
+
+
+.application-page{
+padding: 0 0 30px;
+}
+
+.application-header{
+margin-bottom: 24px;
+width: 100%;
+min-height: 100px;
+background: #ffffff;
+border-radius: 24px;
+box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+padding: 0px 25px;
+
+display: grid;
+grid-template-columns: repeat(2, minmax(180px, 1fr));
+gap: 20px;
+margin-bottom: 24px;
+}
+
+.application-button{
+    text-align: right;
+    padding: 9.5%;
+    ;
+ 
+}
+
+.export-btn{
+    padding: 12px 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #1f2937;
+    font-size: 17px;
+    font-weight: 700;
+    transition: 0.3s ease;
+    background: transparent;
+    color: #4f46e5;
+}
+.export-btn:hover{
+    background: #eef2ff;
+    color: #9173ff;
+}
+
+.application-header h1, p{
+font-family: Arial, sans-serif;
+}
+
+
+
+
+/* ===== nav button hover===== */
+.sidebar nav a {
+    display: block;
+    padding: 18px 24px;
+    margin-bottom: 18px;
+    border-radius: 20px;
+    color: #7f89b2;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.sidebar nav a.active {
+    background: linear-gradient(90deg, #6c63ff, #5146e6);
+    color: white;
+    box-shadow: 0 8px 20px rgba(92, 82, 255, 0.25);
+}
+
+
+
 
 /* ===== ADAPTIVE ===== */
 

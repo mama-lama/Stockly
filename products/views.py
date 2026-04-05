@@ -5,8 +5,8 @@ MENU = [
     {'title': 'Товары', 'url': '/products/'},
     {'title': 'Прогноз', 'url': '/forecast/'},
     {'title': 'Поставщики', 'url': '/suppliers/'},
+    {'title': 'Заявка', 'url': '/application/'},
 ]
-
 ALL_PRODUCTS = [
     {
         'id': 1,

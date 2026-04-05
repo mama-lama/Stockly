@@ -24,6 +24,7 @@ class RegisterUser(CreateView):
             {'title': 'Товары', 'url': '/products/'},
             {'title': 'Прогноз', 'url': '/forecast/'},
             {'title': 'Поставщики', 'url': '/suppliers/'},
+            {'title': 'Заявка', 'url': '/application/'},
         ]
         return context
 
@@ -46,6 +47,7 @@ class LoginUser(LoginView):
             {'title': 'Товары', 'url': '/products/'},
             {'title': 'Прогноз', 'url': '/forecast/'},
             {'title': 'Поставщики', 'url': '/suppliers/'},
+            {'title': 'Заявка', 'url': '/application/'},
         ]
         context['title'] = 'Вход'
         return context
@@ -61,6 +63,7 @@ class ProfileUser(LoginRequiredMixin, TemplateView):
             {'title': 'Товары', 'url': '/products/'},
             {'title': 'Прогноз', 'url': '/forecast/'},
             {'title': 'Поставщики', 'url': '/suppliers/'},
+            {'title': 'Заявка', 'url': '/application/'},
         ]
         context['title'] = 'Профиль'
         return context

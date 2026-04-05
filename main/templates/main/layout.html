@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Stockly{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+
+    <link rel="icon" type="image/png"  sizes="64x64" href="{% static 'main/img/logo.png' %}">
+
+   
 </head>
 <body>
     {% block mainmenu %}
@@ -17,16 +21,13 @@
             </div>
 
            
-           <!-- <div class="header-center-box">
-                <img src="{% static 'main/img/logo.png' %}" alt="">
-           </div> -->
- 
-            
-
             <aside class="sidebar">
-               <nav>
+                <nav>
                     {% for item in menu %}
-                        <a href="{{ item.url }}">{{ item.title }}</a>
+                        <a href="{{ item.url }}"
+                            class="{% if request.path == item.url %}active{% endif %}">
+                            {{ item.title }}
+                        </a>
                     {% endfor %}
                 </nav>
             </aside>
@@ -45,6 +46,10 @@
            </div>
         </div>
     </header>
+
+
+
+
     {% endblock %}
 
     <main class="container main-content">
@@ -52,5 +57,9 @@
         {% endblock %}
        
     </main>
+
 </body>
 </html>
+
+
+
