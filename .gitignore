@@ -1,3 +1,7 @@
+# Our data
+data/
+easykassa_tokens.json
+
 # Environments
 .env
 .venv
