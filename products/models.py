@@ -38,7 +38,7 @@ class Product(models.Model):
     )
     is_active = models.BooleanField(
         default=True,
-        verbose_name=True,
+        verbose_name='Активный',
         help_text='Отображать товар на складе'
     )
     created_at = models.DateTimeField(
@@ -65,11 +65,17 @@ class InventoryOperation(models.Model):
         WRITE_OFF = 'write_off', 'Списание'
         INVENTORY_ADJUSTMENT = 'inventory_adjustment', 'Корректировка'
 
+    operation_type = models.CharField(
+        max_length=50,
+        choices=OperationType.choices,
+        verbose_name='Тип операции',
+        default='receipt'
+        )
     product = models.ForeignKey(
         Product,
         on_delete=models.PROTECT,
         related_name='operations',
-        verbose_name="Тип операции"
+        verbose_name="Товар"
     )
     quantity = models.PositiveIntegerField(
         verbose_name="Количество"
@@ -115,6 +121,3 @@ class InventoryOperation(models.Model):
 
     def __str__(self):
         return f"{self.get_operation_type_display()} - {self.product.name} - {self.quantity} шт."
-    
-    def save():
-        pass

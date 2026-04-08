@@ -25,7 +25,7 @@ class ExternalFactor(models.Model):
         max_length=100,
         blank=True,
         verbose_name="Название праздника",
-        help_text="Если is_holiday = True"
+        help_text="Если праздник активен"
     )
     notes = models.TextField(
         blank=True,
