@@ -88,10 +88,6 @@ body {
     transition: 0.2s ease;
 }
 
-.sidebar a:first-child {
-    
-  
-}
 
 .sidebar a:hover {
     background: #eef2ff;
@@ -121,7 +117,7 @@ body {
     border-radius: 12px;
     text-decoration: none;
     text-align: left;
-    color: #1f2937;
+    color: black;
     font-size: 14px;
     font-weight: 700;
     transition: 0.2s ease;
@@ -141,7 +137,7 @@ body {
 
 .logout-btn {
     width: 100%;
-    padding: 12px 14px;
+    padding: 12px 24px;
     border: none;
     border-radius: 12px;
     background: #e5e7eb;
@@ -350,13 +346,30 @@ body {
 
 .search-form {
     display: flex;
-    gap: 12px;
+    gap: 40px;
     flex-wrap: wrap;
 }
 
+.search-form-cat{
+    min-width: 25%;
+    padding: 13px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    font-size: 15px;
+    outline: none;
+}
+
+.search-form-sup{
+    min-width: 25%;
+    padding: 13px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    font-size: 15px;
+    outline: none;
+}
+
 .search-form input {
-    flex: 1;
-    min-width: 240px;
+    min-width: 25%;
     padding: 13px 15px;
     border: 1px solid #d1d5db;
     border-radius: 12px;
@@ -508,10 +521,7 @@ body {
     color: #4f46e5;
 }
 
-.products-list-price,
-.products-list-quantity {
-    color: #1f2937;
-}
+
 
 .p-data {
     margin: 0 0 24px 0;
@@ -537,7 +547,26 @@ body {
     color: #334155;
     font-size: 16px;
 }
+.upload-btn{
+    padding: 13px 20px;
+    border: none;
+    border-radius: 12px;
+    background: #4f46e5;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 200px;
+}
 
+.btn-box{
+    display: grid;
+    place-items: center;
+}
+
+.custom-file-upload{
+margin-bottom: 10px;
+}
 /* ===== APPLICATION ===== */
 
 
@@ -599,6 +628,10 @@ font-family: Arial, sans-serif;
     color: #7f89b2;
     text-decoration: none;
     font-weight: 600;
+}
+
+.sidebar .nav-auth a{
+color: black;
 }
 
 .sidebar nav a.active {
