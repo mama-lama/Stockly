@@ -2,10 +2,23 @@
 {% block title %}Поставщики | Stockly{% endblock %}
 
 {% block content %}
-<section class="stub-page">
-    <div class="stub-card">
-        <h2>Раздел «Поставщики»</h2>
-        <p>Страница для будущей интеграции работы с поставщиками и заявками.</p>
+<section class="suppliers-page">
+    <h1>Поставщики</h1>
+    <div class="suppliers-card">
+     {% if suppliers %}
+    
+        {% for supplier in suppliers %}
+            <div class="suppliers-wrap-cards">
+                <h2> {{ supplier.name }} </h2>
+                <p> Товаров: {{ supplier.products_count }} </p>
+            </div>
+                
+        {% endfor %}
+        
+    {% else %}
+        <p>Поставщики не найдены.</p>
+    {% endif %}
     </div>
+
 </section>
 {% endblock %}

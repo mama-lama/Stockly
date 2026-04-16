@@ -422,7 +422,7 @@ body {
 
 /* ===== AUTH FORMS ===== */
 
-.stub-page {
+.stub-page-forecast {
     min-height: calc(100vh - 120px);
     display: flex;
     align-items: center;
@@ -430,7 +430,7 @@ body {
     padding: 40px 20px;
 }
 
-.stub-card {
+.stub-card-forecast {
     width: 100%;
     max-width: 500px;
     background: #ffffff;
@@ -439,7 +439,7 @@ body {
     box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
 }
 
-.stub-card h2 {
+.stub-card-forecast h2 {
     margin: 0 0 24px 0;
     text-align: center;
     font-size: 30px;
@@ -642,6 +642,28 @@ color: black;
 
 
 
+/* ===== suppliers ===== */
+.suppliers-card{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(180px, 1fr));
+    gap: 20px;
+   
+}
+
+.suppliers-wrap-cards{
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 24px 26px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    min-width: 0;
+}
+.suppliers-page h1{
+    margin: 0 0 10px 0;
+    font-size: 28px;
+   margin-bottom: 20px
+}
+
+   
 
 /* ===== ADAPTIVE ===== */
 
