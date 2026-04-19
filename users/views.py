@@ -7,6 +7,15 @@ from django.views.generic import CreateView, TemplateView
 from .forms import RegisterUserForm
 
 
+MENU = [
+    {'title': 'Главная', 'url': '/'},
+    {'title': 'Товары', 'url': '/products/'},
+    {'title': 'Прогноз', 'url': '/forecast/'},
+    {'title': 'Поставщики', 'url': '/suppliers/'},
+    {'title': 'Заявка', 'url': '/application/'},
+]
+
+
 class RegisterUser(CreateView):
     form_class = RegisterUserForm
     template_name = 'users/register.html'
@@ -19,17 +28,14 @@ class RegisterUser(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['menu'] = [
-            {'title': 'Главная', 'url': '/'},
-            {'title': 'Товары', 'url': '/products/'},
-            {'title': 'Прогноз', 'url': '/forecast/'},
-            {'title': 'Поставщики', 'url': '/suppliers/'},
-            {'title': 'Заявка', 'url': '/application/'},
-        ]
+        context['menu'] = MENU
+        context['title'] = 'Регистрация'
         return context
+
 
 class LogoutUser(LogoutView):
     next_page = reverse_lazy('home')
+
 
 class LoginUser(LoginView):
     template_name = 'users/login.html'
@@ -37,20 +43,12 @@ class LoginUser(LoginView):
     def get_success_url(self):
         return reverse_lazy('profile')
 
-    def get_success_url(self):
-        return '/profile/'
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['menu'] = [
-            {'title': 'Главная', 'url': '/'},
-            {'title': 'Товары', 'url': '/products/'},
-            {'title': 'Прогноз', 'url': '/forecast/'},
-            {'title': 'Поставщики', 'url': '/suppliers/'},
-            {'title': 'Заявка', 'url': '/application/'},
-        ]
+        context['menu'] = MENU
         context['title'] = 'Вход'
         return context
+
 
 class ProfileUser(LoginRequiredMixin, TemplateView):
     template_name = 'users/profile.html'
@@ -58,12 +56,6 @@ class ProfileUser(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['menu'] = [
-            {'title': 'Главная', 'url': '/'},
-            {'title': 'Товары', 'url': '/products/'},
-            {'title': 'Прогноз', 'url': '/forecast/'},
-            {'title': 'Поставщики', 'url': '/suppliers/'},
-            {'title': 'Заявка', 'url': '/application/'},
-        ]
+        context['menu'] = MENU
         context['title'] = 'Профиль'
         return context

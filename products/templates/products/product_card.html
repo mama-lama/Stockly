@@ -1,28 +1,82 @@
 {% extends 'main/layout.html' %}
-{% block title %} Карточки товаров | Stockly{% endblock %}
+{% block title %}{{ product.name }} | Stockly{% endblock %}
 
 {% block content %}
-<section class="products-page">
-    <div class="page-header">
-        {% if product %}
-            <h2>{{ product.name }}</h2>
-            <p>Подробная информация</p>
-        {% else %}
-            <h2>Товар не найден</h2>
-        {% endif %}
-    </div>
+<section class="product-detail-page">
+    {% if product %}
+        <div class="product-top-layout">
+            <div class="product-main-info">
+                <h1 class="product-title">{{ product.name }}</h1>
 
-    <div class="table-card">
-        {% if product %}
-            <p><strong>Название:</strong> {{ product.name }}</p>
-            <p><strong>Категория:</strong> {{ product.category }}</p>
-            <p><strong>Цена продажи:</strong> {{ product.sale_price }} ₽</p>
-            <p><strong>Остаток:</strong> {{ product.stock_quantity }}</p>
-            <p><strong>Поставщик:</strong> {{ product.supplier }}</p>
-        {% else %}
-            <p>Информация о товаре отсутствует</p>
-        {% endif %}
-    </div>
+                <div class="product-info-grid">
+                    <div class="product-info-column">
+                        <p><strong>Название:</strong> {{ product.name }}</p>
+                        <p><strong>Категория:</strong> {{ product.category }}</p>
+                        <p><strong>Закупочная цена:</strong> {{ product.purchase_price }} ₽</p>
+                    </div>
 
+                    <div class="product-info-column">
+                        <p><strong>Поставщик:</strong> {{ product.supplier }}</p>
+                        <p><strong>Цена продажи:</strong> {{ product.sale_price }} ₽</p>
+                        <p><strong>Текущий остаток:</strong> {{ product.stock_quantity }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-forecast-panel">
+                <h2>Ключевые прогнозы</h2>
+
+                <div class="product-forecast-grid">
+                    <div class="forecast-item">
+                        <span class="forecast-label">1 день</span>
+                        <span class="forecast-value">0</span>
+                    </div>
+
+                    <div class="forecast-item">
+                        <span class="forecast-label">7 дней</span>
+                        <span class="forecast-value">1</span>
+                    </div>
+
+                    <div class="forecast-item">
+                        <span class="forecast-label">14 дней</span>
+                        <span class="forecast-value">2</span>
+                    </div>
+
+                    <div class="forecast-item">
+                        <span class="forecast-label">30 дней</span>
+                        <span class="forecast-value">4</span>
+                    </div>
+
+                    <div class="forecast-item">
+                        <span class="forecast-label">К заказу</span>
+                        <span class="forecast-value">0</span>
+                    </div>
+
+                    <div class="forecast-item">
+                        <span class="forecast-label">Реком. цена</span>
+                        <span class="forecast-value">114,46 ₽</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="product-sales-panel">
+            <h2>Продажи за 30 дней</h2>
+
+            <div class="sales-list">
+                <div class="sales-row"><span>20.03</span><span>0</span></div>
+                <div class="sales-row"><span>21.03</span><span>0</span></div>
+                <div class="sales-row"><span>22.03</span><span>0</span></div>
+                <div class="sales-row"><span>23.03</span><span>0</span></div>
+                <div class="sales-row"><span>24.03</span><span>0</span></div>
+                <div class="sales-row"><span>25.03</span><span>0</span></div>
+            </div>
+        </div> -->
+    {% else %}
+        <div class="empty-state">
+            <h3>Товар не найден</h3>
+            <p>Информация о товаре отсутствует.</p>
+        </div>
+    {% endif %}
 </section>
 {% endblock %}

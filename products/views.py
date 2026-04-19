@@ -118,7 +118,7 @@ def product_list(request):
 
     context = {
         'title': 'Список товаров',
-        'headers': ['Название', 'Категория', 'Цена продажи', 'Остаток', 'Поставщик'],
+        'headers': ['Название', 'Категория', 'Цена продажи','Закупочная цена', 'Остаток', 'Поставщик'],
         'products': products,
         'query': request.GET.get('q', '').strip(),
         'menu': MENU,

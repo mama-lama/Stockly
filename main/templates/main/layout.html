@@ -22,28 +22,29 @@
 
            
             <aside class="sidebar">
-                <nav>
-                    {% for item in menu %}
-                        <a href="{{ item.url }}"
+                <nav class="main-nav">
+                        {% for item in menu %}
+                            <a href="{{ item.url }}"
                             class="{% if request.path == item.url %}active{% endif %}">
-                            {{ item.title }}
-                        </a>
-                    {% endfor %}
+                        {{ item.title }}
+                            </a>
+                        {% endfor %}
+
+                    <div class="nav-auth">
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'profile' %}" class="register-btn">{{ user.username }}</a>
+
+                            <form action="{% url 'logout' %}" method="post" class="logout-form">
+                        {% csrf_token %}
+                            <button type="submit" class="logout-btn">Выйти</button>
+                            </form>
+                        {% else %}
+                            <a href="{% url 'login' %}" class="login-btn">Вход</a>
+                            <a href="{% url 'register' %}" class="register-btn">Регистрация</a>
+                        {% endif %}
+                    </div>
                 </nav>
             </aside>
-           <div class="header-actions">
-                {% if user.is_authenticated %}
-                    <a href="{% url 'profile' %}" class="register-btn">{{ user.username }}</a>
-
-                    <form action="{% url 'logout' %}" method="post" class="logout-form">
-                        {% csrf_token %}
-                        <button type="submit" class="logout-btn">Выйти</button>
-                </form>
-            {% else %}
-                <a href="{% url 'login' %}" class="login-btn">Вход</a>
-                <a href="{% url 'register' %}" class="register-btn">Регистрация</a>
-            {% endif %}
-           </div>
         </div>
     </header>
 

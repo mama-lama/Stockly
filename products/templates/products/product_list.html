@@ -75,8 +75,10 @@
                     <td> <a href="{% url 'product_detail' product.id %}" class="products-list"> {{ product.name }} </a></td>
                     <td class="products-list-category"> {{ product.category }}  </td>
                     <td class="products-list-price"> {{ product.sale_price }} ₽ </td>
+                    <td class="products-list-purchase-price"> {{ product.purchase_price }} ₽ </td>
                     <td class="products-list-quantity">  {{ product.stock_quantity }} </td>
                     <td class="products-list-supliers"> {{ product.supplier }}  </td>
+                    
                 </tr>
                 {% endfor %}
             </tbody>
