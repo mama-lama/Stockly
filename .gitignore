@@ -153,3 +153,12 @@ celerybeat.pid
 
 # SageMath parsed files
 *.sage.py
+
+# Project-specific local/sensitive files
+RUN_SERVICES_INSTRUCTIONS.txt
+scripts/
+integrations/easykassa_client.py
+inventory/services/export_all_transactions.py
+inventory/services/export_products.py
+inventory/management/commands/export_all_transactions.py
+inventory/management/commands/export_products.py
