@@ -1,0 +1,25 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: stockly_app
+    ports:
+      - "8000:8000"
+    # .env должен иметь переменные!!!
+    env_file:
+      - .env
+    environment:
+      - DJANGO_SETTINGS_MODULE=stockly.settings
+    networks:
+      - app_network
+    volumes:
+      - ./:/usr/src/app
+      - sqlite_data:/usr/src/app/db
+    restart: unless-stopped
+
+volumes:
+  sqlite_data:
+
+networks:
+  app_network:
