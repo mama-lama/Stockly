@@ -2,6 +2,12 @@
 data/
 easykassa_tokens.json
 
+# Django stuff:
+*.log
+local_settings.py
+*.sqlite3
+*.sqlite3-journal
+
 # Environments
 .env
 .venv
@@ -107,12 +113,6 @@ coverage.xml
 # Translations
 *.mo
 *.pot
-
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
 
 # Flask stuff:
 instance/
