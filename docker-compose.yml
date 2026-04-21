@@ -15,11 +15,7 @@ services:
       - app_network
     volumes:
       - ./:/usr/src/app
-      - sqlite_data:/usr/src/app/db
     restart: unless-stopped
-
-volumes:
-  sqlite_data:
 
 networks:
   app_network:
