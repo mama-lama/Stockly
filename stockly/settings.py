@@ -21,15 +21,14 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'main',
-    'products',
-    'categories',
-    'forecasting',
-    'external',
-    'suppliers',
-    'users',
-    'application',
-
+    'apps.products',
+    'apps.categories',
+    'apps.suppliers',
+    'apps.forecasting',
+    'apps.users',
+    'apps.main',
+    'apps.application',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -114,12 +113,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-static_dir = BASE_DIR / 'static'
-if static_dir.exists():
-    STATICFILES_DIRS = [static_dir]
-else:
-    STATICFILES_DIRS = []
-
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # Папка для production (collectstatic)
-
 STATIC_URL = '/static/'
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'apps' / 'main' / 'static',
+]
