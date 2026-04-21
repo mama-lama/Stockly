@@ -60,18 +60,20 @@
             </div>
         </div>
 
-        <!-- <div class="product-sales-panel">
-            <h2>Продажи за 30 дней</h2>
+    
+    <div class="chart-list">
+        {% for item in forecast.daily_series %}
+            <div class="chart-row">
+                <span class="chart-date">{{ item.date }}</span>
 
-            <div class="sales-list">
-                <div class="sales-row"><span>20.03</span><span>0</span></div>
-                <div class="sales-row"><span>21.03</span><span>0</span></div>
-                <div class="sales-row"><span>22.03</span><span>0</span></div>
-                <div class="sales-row"><span>23.03</span><span>0</span></div>
-                <div class="sales-row"><span>24.03</span><span>0</span></div>
-                <div class="sales-row"><span>25.03</span><span>0</span></div>
+                <div class="chart-bar-wrap">
+                    <div class="chart-bar" style="width: {{ item.width }}%;"></div>
+                </div>
+
+                <strong class="chart-value">{{ item.sales }}</strong>
             </div>
-        </div> -->
+        {% endfor %}
+    </div>
     {% else %}
         <div class="empty-state">
             <h3>Товар не найден</h3>

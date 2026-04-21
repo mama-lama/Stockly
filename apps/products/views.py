@@ -1,10 +1,11 @@
 from pathlib import Path
 import csv
+from datetime import timedelta
 
 from django.conf import settings
 from django.contrib import messages
 from django.shortcuts import render, redirect
-
+from django.utils import timezone
 
 MENU = [
     {'title': 'Главная', 'url': '/'},
@@ -141,4 +142,41 @@ def product_detail(request, product_id):
         'menu': MENU,
     }
 
+from datetime import timedelta
+from django.shortcuts import render
+from django.utils import timezone
+
+
+def product_detail(request, product_id):
+    all_products = load_products()
+    product = next((item for item in all_products if str(item['id']) == str(product_id)), None)
+
+    today = timezone.localdate()
+
+    sales_data = [5, 8, 3, 10, 7, 12, 6, 4, 9, 11, 5, 8, 6, 7, 13, 9, 4, 3, 6, 8, 10, 7, 5, 9, 12, 11, 6, 4, 8, 10]
+
+    daily_series = []
+    for i in range(30):
+        day = today - timedelta(days=29 - i)
+        daily_series.append({
+            'date': day.strftime('%d.%m'),
+            'sales': sales_data[i],
+        })
+
+    max_sales = max((item['sales'] for item in daily_series), default=1)
+
+    for item in daily_series:
+        item['width'] = round((item['sales'] / max_sales) * 100, 1) if max_sales else 0
+
+    context = {
+        'title': 'Карточка товара',
+        'product': product,
+        'menu': MENU,
+        'forecast': {
+            'daily_series': daily_series,
+            'max_sales': max_sales,
+        }
+    }
+
     return render(request, 'products/product_card.html', context)
+
