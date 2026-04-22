@@ -162,3 +162,6 @@ inventory/services/export_all_transactions.py
 inventory/services/export_products.py
 inventory/management/commands/export_all_transactions.py
 inventory/management/commands/export_products.py
+
+# ML artifacts
+ml/artifacts/
