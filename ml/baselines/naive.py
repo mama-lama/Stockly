@@ -9,7 +9,6 @@ def add_last_value_baseline(
     target_col: str,
     prediction_col: str = "pred_last_value",
 ) -> pd.DataFrame:
-    """Add naive baseline: forecast equals current observed value."""
     result = df.copy()
     result[prediction_col] = result[target_col]
     return result

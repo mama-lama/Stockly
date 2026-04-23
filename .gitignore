@@ -1,5 +1,6 @@
 # Our data
 data/
+notes/
 easykassa_tokens.json
 
 # Django stuff:
