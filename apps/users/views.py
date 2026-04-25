@@ -13,7 +13,9 @@ MENU = [
     {'title': 'Прогноз', 'url': '/forecast/'},
     {'title': 'Поставщики', 'url': '/suppliers/'},
     {'title': 'Заявка', 'url': '/application/'},
+    {'title': 'Импорт', 'url': '/imports/'},
 ]
+
 
 
 class RegisterUser(CreateView):

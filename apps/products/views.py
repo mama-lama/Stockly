@@ -13,6 +13,7 @@ MENU = [
     {'title': 'Прогноз', 'url': '/forecast/'},
     {'title': 'Поставщики', 'url': '/suppliers/'},
     {'title': 'Заявка', 'url': '/application/'},
+    {'title': 'Импорт', 'url': '/imports/'},
 ]
 
 DATA_FILE = settings.BASE_DIR / 'sample_data.csv'
@@ -179,4 +180,3 @@ def product_detail(request, product_id):
     }
 
     return render(request, 'products/product_card.html', context)
-

@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'apps.users',
     'apps.main',
     'apps.application',
+    'apps.imports',
     
     'django.contrib.admin',
     'django.contrib.auth',

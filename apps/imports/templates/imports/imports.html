@@ -1,0 +1,56 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Импорт данных | Stockly{% endblock %}
+
+{% block content %}
+<section class="import-page">
+    <div class="page-header">
+        <h2>Импорт данных</h2>
+        <p>
+            Загрузите CSV-файл с товарами. После загрузки данные будут использоваться
+            на странице товаров, в карточках товаров и в аналитике.
+        </p>
+    </div>
+
+    <div class="import-layout">
+        <div class="import-card">
+            <h3>Загрузка CSV</h3>
+
+            <form method="post" enctype="multipart/form-data" class="import-form">
+                {% csrf_token %}
+
+                <div class="custom-file-upload">
+                    <label for="database-file" class="custom-file-label">
+                        Выберите CSV-файл
+                    </label>
+
+                    <input
+                        type="file"
+                        id="database-file"
+                        name="database_file"
+                        class="file-input-hidden"
+                        accept=".csv"
+                        required
+                    >
+                </div>
+                <div class="import-btn">
+                    <button type="submit" class="upload-btn">
+                        Загрузить
+                    </button>
+                </div>
+                
+            </form>
+
+            {% if data_file_exists %}
+    
+            {% else %}
+                <p class="import-status warning">
+                    Файл данных ещё не загружен.
+                </p>
+            {% endif %}
+        </div>
+
+    
+    </div>
+</section>
+{% endblock %}

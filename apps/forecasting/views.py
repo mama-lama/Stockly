@@ -9,6 +9,7 @@ def forecast_page(request):
             {'title': 'Прогноз', 'url': '/forecast/'},
             {'title': 'Поставщики', 'url': '/suppliers/'},
             {'title': 'Заявка', 'url': '/application/'},
+            {'title': 'Импорт', 'url': '/imports/'},
         ]
     }
     return render(request, 'forecasting/forecast.html', context)

@@ -6,61 +6,55 @@
     {% if product %}
         <div class="product-top-layout">
             <div class="product-main-info">
-                <h1 class="product-title">{{ product.name }}</h1>
+
+                <div class = "products-up">
+                    <div class = "products-up-title">
+                        <h1 class="product-title">{{ product.name }}</h1>
+                    </div>
+                    <div class = "products-up-btn">
+                        <a href="/products/">Назад</a>
+                    </div>
+                </div>
+               
 
                 <div class="product-info-grid">
                     <div class="product-info-column">
                         <p><strong>Название:</strong> {{ product.name }}</p>
+                    </div>
+
+                    <div class="product-info-column">
                         <p><strong>Категория:</strong> {{ product.category }}</p>
+                    </div>
+
+                    <div class="product-info-column">
                         <p><strong>Закупочная цена:</strong> {{ product.purchase_price }} ₽</p>
                     </div>
 
                     <div class="product-info-column">
                         <p><strong>Поставщик:</strong> {{ product.supplier }}</p>
+                    </div>
+
+                    <div class="product-info-column">
                         <p><strong>Цена продажи:</strong> {{ product.sale_price }} ₽</p>
+                    </div>
+
+                    <div class="product-info-column">
                         <p><strong>Текущий остаток:</strong> {{ product.stock_quantity }}</p>
                     </div>
-                </div>
-            </div>
-
-            <div class="product-forecast-panel">
-                <h2>Ключевые прогнозы</h2>
-
-                <div class="product-forecast-grid">
-                    <div class="forecast-item">
-                        <span class="forecast-label">1 день</span>
-                        <span class="forecast-value">0</span>
-                    </div>
-
-                    <div class="forecast-item">
-                        <span class="forecast-label">7 дней</span>
-                        <span class="forecast-value">1</span>
-                    </div>
-
-                    <div class="forecast-item">
-                        <span class="forecast-label">14 дней</span>
-                        <span class="forecast-value">2</span>
-                    </div>
-
-                    <div class="forecast-item">
-                        <span class="forecast-label">30 дней</span>
-                        <span class="forecast-value">4</span>
-                    </div>
-
-                    <div class="forecast-item">
-                        <span class="forecast-label">К заказу</span>
-                        <span class="forecast-value">0</span>
-                    </div>
-
-                    <div class="forecast-item">
-                        <span class="forecast-label">Реком. цена</span>
-                        <span class="forecast-value">114,46 ₽</span>
-                    </div>
+                    
                 </div>
             </div>
         </div>
 
     
+    
+    {% else %}
+        <div class="empty-state">
+            <h3>Товар не найден</h3>
+            <p>Информация о товаре отсутствует.</p>
+        </div>
+    {% endif %}
+
     <div class="chart-list">
         {% for item in forecast.daily_series %}
             <div class="chart-row">
@@ -74,11 +68,5 @@
             </div>
         {% endfor %}
     </div>
-    {% else %}
-        <div class="empty-state">
-            <h3>Товар не найден</h3>
-            <p>Информация о товаре отсутствует.</p>
-        </div>
-    {% endif %}
 </section>
 {% endblock %}

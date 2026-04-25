@@ -6,11 +6,12 @@ from django.http import FileResponse, Http404
 
 def application_page(request):
     menu = [
-        {'title': 'Главная', 'url': '/'},
-        {'title': 'Товары', 'url': '/products/'},
-        {'title': 'Прогноз', 'url': '/forecast/'},
-        {'title': 'Поставщики', 'url': '/suppliers/'},
-        {'title': 'Заявка', 'url': '/application/'},
+    {'title': 'Главная', 'url': '/'},
+    {'title': 'Товары', 'url': '/products/'},
+    {'title': 'Прогноз', 'url': '/forecast/'},
+    {'title': 'Поставщики', 'url': '/suppliers/'},
+    {'title': 'Заявка', 'url': '/application/'},
+    {'title': 'Импорт', 'url': '/imports/'},
     ]
 
     context = {
@@ -21,7 +22,7 @@ def application_page(request):
 
 
 def export_excel(request):
-    file_path = Path(settings.BASE_DIR) / 'application' / 'files' / 'purchase_order.xlsx'
+    file_path = Path(settings.BASE_DIR) / 'apps' / 'application' / 'files' / 'purchase_order.xlsx'
 
     if not file_path.exists():
         raise Http404('Файл Excel не найден')
