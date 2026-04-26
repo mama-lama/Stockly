@@ -42,28 +42,30 @@
 
     <div class="table-card">
         {% if products %}
-        <table class="products-table">
-            <thead>
-                <tr>
-                    {% for header in headers %}
-                        <th>{{ header }}</th>
-                    {% endfor %}
-                </tr>
-            </thead>
-            <tbody>
-                {% for product in products %}
-                <tr>
-                    <td> <a href="{% url 'product_detail' product.id %}" class="products-list"> {{ product.name }} </a></td>
-                    <td class="products-list-category"> {{ product.category }}  </td>
-                    <td class="products-list-price"> {{ product.sale_price }} ₽ </td>
-                    <td class="products-list-purchase-price"> {{ product.purchase_price }} ₽ </td>
-                    <td class="products-list-quantity">  {{ product.stock_quantity }} </td>
-                    <td class="products-list-supliers"> {{ product.supplier }}  </td>
+        <div class = "products-scroll">
+            <table class="products-table">
+                <thead>
+                    <tr>
+                        {% for header in headers %}
+                            <th>{{ header }}</th>
+                        {% endfor %}
+                    </tr>
+             </thead>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <td> <a href="{% url 'product_detail' product.id %}" class="products-list"> {{ product.name }} </a></td>
+                        <td class="products-list-category"> {{ product.category }}  </td>
+                        <td class="products-list-price"> {{ product.sale_price }} ₽ </td>
+                        <td class="products-list-purchase-price"> {{ product.purchase_price }} ₽ </td>
+                        <td class="products-list-quantity">  {{ product.stock_quantity }} </td>
+                        <td class="products-list-supliers"> {{ product.supplier }}  </td>
                     
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
         {% else %}
         <div class="empty-state">
             <h3>Ничего не найдено</h3>
